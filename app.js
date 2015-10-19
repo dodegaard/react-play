@@ -1,29 +1,35 @@
+var DATA = {
+ title: 'Menu',
+ items: [
+   { id: 1, name: 'tacos', type: 'mexican' },
+   { id: 2, name: 'burrito', type: 'mexican' },
+   { id: 3, name: 'tostada', type: 'mexican' },
+   { id: 4, name: 'hush puppies', type: 'southern' }
+ ]
+};
 
-var NUM5 = [1,2,3,4,5];
-
-function filt(n){
-	return n > 3
+function mexicanFilter(food)
+{
+	return food.type === 'mexican';
 }
 
-function myMapper(n){
-	return <li> {n} </li>;
+function mexicanMapper(food) {
+	return <li> {food.name} </li>;
 }
 
-var numbers = NUM5.filter(filt).map(myMapper);
+var mexicanFood = DATA.items.filter(mexicanFilter).map(mexicanMapper);
 
 var App = React.createClass({
 	render: function() {
 		return (
 			<div>
-				<h1>I am a boring component</h1>
+				<h1>Menu</h1>
 				<ul>
-					{numbers}
+					{mexicanFood}
 				</ul>	
 			</div>
 			)
-
 	}
-
 });
 
 React.render(<App/>, document.body);
