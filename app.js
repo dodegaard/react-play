@@ -1,23 +1,14 @@
-var DATA = {
- title: 'Menu',
- items: [
-   { id: 1, name: 'tacos', type: 'mexican' },
-   { id: 2, name: 'burrito', type: 'mexican' },
-   { id: 3, name: 'tostada', type: 'mexican' },
-   { id: 4, name: 'hush puppies', type: 'southern' }
- ]
-};
+var USERS = [
+ {id: 1, name: "doug", email: "doug@kosmojo.com"},
+ {id: 2, name: "paul", email: "paul@kosmojo.com"},
+ {id: 3, name: "emily", email: "emily@kosmojo.com"},
+]
 
-function mexicanFilter(food)
-{
-	return food.type === 'mexican';
+function userMapper(user) {
+	return <li key={user.id}> {user.name} - {user.email} </li>;
 }
 
-function mexicanMapper(food) {
-	return <li key={food.id}> {food.name} </li>;
-}
-
-var mexicanFood = DATA.items.filter(mexicanFilter).map(mexicanMapper);
+var users = USERS.map(userMapper);
 
 var App = React.createClass({
 	render: function() {
@@ -27,11 +18,11 @@ var App = React.createClass({
 				<h1>Menu</h1>
 				<h2>{user}</h2>
 				<ul>
-					{mexicanFood}
+					{users}
 				</ul>	
 			</div>
 			)
 	}
 });
 
-React.render(<App data={DATA}/>, document.body);
+React.render(<App data={USERS}/>, document.body);
