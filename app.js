@@ -14,16 +14,18 @@ function mexicanFilter(food)
 }
 
 function mexicanMapper(food) {
-	return <li> {food.name} </li>;
+	return <li key={food.id}> {food.name} </li>;
 }
 
 var mexicanFood = DATA.items.filter(mexicanFilter).map(mexicanMapper);
 
 var App = React.createClass({
 	render: function() {
+		var user = this.props.user;
 		return (
 			<div>
 				<h1>Menu</h1>
+				<h2>{user}</h2>
 				<ul>
 					{mexicanFood}
 				</ul>	
@@ -32,4 +34,4 @@ var App = React.createClass({
 	}
 });
 
-React.render(<App/>, document.body);
+React.render(<App user="doug@intralogix.biz"/>, document.body);
