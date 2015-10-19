@@ -9,3 +9,4 @@ python -m SimpleHTTPServer 8000
 3. pass in user in app
 4. pass in object for use
 5. swap out an array of users for mexican food and display emails and usernames
+6. add gravatar to the output
