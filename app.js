@@ -7,34 +7,43 @@ var USERS = [
 
 var GRAVATAR_URL = "http://gravatar.com/avatar";
 
-function userMapper(user) {
-	return <li key={user.id}> {user.name} - {user.email} </li>;
-}
+var Gravatar = React.createClass({
+    render: function() {
 
+     var users = this.props.users.map(function(u){
 
+        var hash = md5(u.email);
+        var size = 36;
 
-var App = React.createClass({
-	render: function() {
-	   var users = this.props.datausers.map(function(u){
+        var url = GRAVATAR_URL + "/" + hash + "?=" + size;
+      
+      return (
+        <li> <img src={url} /> {u.name} </li>
+        )
+     });
 
-       var hash = md5(u.email);
-       var size = 36;
-
-       var url = GRAVATAR_URL + "/" + hash + "?=" + size;
-     
-     return (
-       <li> <img src={url} /> {u.email} </li>
-       )
- 	});
-		return (
-			<div>
-				<h1>Menu</h1>
-				<ul>
-					{users}
-				</ul>	
-			</div>
-			);
-	}
+        return (
+        <div>
+          <h1> Display Users and their gravatars! </h1>
+            <ul>
+               {users}
+            </ul>
+        </div>
+          );
+    }
 });
 
-React.render(<App datausers={USERS}/>, document.body);
+var App = React.createClass({
+    render: function() {
+        return (
+          <div>
+            <h1> Super  Cool Gravatars!! </h1>
+              <ul>
+                <Gravatar users={USERS}/>
+              </ul>
+          </div>
+          );
+    }
+});
+
+React.render(<App/>, document.body);
