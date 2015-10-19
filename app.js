@@ -21,7 +21,7 @@ var mexicanFood = DATA.items.filter(mexicanFilter).map(mexicanMapper);
 
 var App = React.createClass({
 	render: function() {
-		var user = this.props.user;
+		var user = this.props.data;
 		return (
 			<div>
 				<h1>Menu</h1>
@@ -34,4 +34,4 @@ var App = React.createClass({
 	}
 });
 
-React.render(<App user="doug@intralogix.biz"/>, document.body);
+React.render(<App data={DATA}/>, document.body);
