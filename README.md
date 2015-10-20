@@ -12,7 +12,8 @@ python -m SimpleHTTPServer 8000
 6. add gravatar to the output
 7. move gravatar code out to its own React class
 
-branch
+Day Two --> 
 
 1. simple event binding
 2. making it a separate component
+3. add a stateful component
