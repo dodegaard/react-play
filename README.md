@@ -11,3 +11,7 @@ python -m SimpleHTTPServer 8000
 5. swap out an array of users for mexican food and display emails and usernames
 6. add gravatar to the output
 7. move gravatar code out to its own React class
+
+branch
+
+1. simple event binding
