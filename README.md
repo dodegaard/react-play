@@ -15,3 +15,4 @@ python -m SimpleHTTPServer 8000
 branch
 
 1. simple event binding
+2. making it a separate component
